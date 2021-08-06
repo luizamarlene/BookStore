@@ -1,11 +1,13 @@
 import React from 'react'; /* rnfunc */
 import { View, Text, StyleSheet,ScrollView, Image, TouchableOpacity} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Shoes from '../../components';
+import Shoes from '../../components/Shoes';
+import {useNavigation} from '@react-navigation/native'; /* hook pra navegar entre as telas */
 
 
 
 function Home() {
+  const navigation = useNavigation();
  return (
    <View style={styles.container}>
     <View style={styles.header}>
@@ -29,19 +31,20 @@ function Home() {
     <View style={styles.line}/>
     <ScrollView>
       <Text style={styles.text}>LANÇAMENTOS</Text>
-      <Shoes></Shoes>
-      <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
+      <View style={styles.produtoContainer}>
+        <Shoes img={require('../../assets/1.png')} cost="R$ 140,99">Nike lindo</Shoes>
+        <Shoes img={require('../../assets/2.png')} cost="R$ 340,99" onClick={()=> navigation.navigate('Detail')
+        }>Nike Downshifter</Shoes>
       </View>
-      <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
+      <View style={styles.produtoContainer}>
+        <Shoes img={require('../../assets/3.png')} cost="R$ 140,99">Nike air</Shoes>
+        <Shoes img={require('../../assets/4.png')} cost="R$ 340,99">Nike foda-se</Shoes>
       </View>
-      <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
-        <View style={{width: 70, height:70, backgroundColor:'red'}}></View>
+      <View style={styles.produtoContainer}>
+        <Shoes img={require('../../assets/5.png')} cost="R$ 140,99">Nike lindo, caro e perfeito</Shoes>
+        <Shoes img={require('../../assets/6.png')} cost="R$ 340,99">Nike azul</Shoes>
       </View>
+     
     </ScrollView>
    </View>
   );}
@@ -72,6 +75,11 @@ const styles = StyleSheet.create({
   line:{
     borderBottomColor:'#D8d8d8',
     borderBottomWidth:2
+  },
+  produtoContainer: {
+    flexDirection:'row', 
+    justifyContent:'space-around',
+    marginBottom:5
   }
 
 })

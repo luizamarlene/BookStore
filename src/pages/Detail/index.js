@@ -1,11 +1,102 @@
-import React from 'react';
-import { View } from 'react-native';
+import React , {useEffect} from 'react';
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet} from 'react-native';
+import SizeButton from '../../components/SizeButton';
+import Dot from '../../components/Dot';
+import Button from '../../components/Button';
+import Footer from '../../components/Footer';
 
- function Detail() {
- return (
-   <View>
-       <Text></Text>
-   </View>
-  );
+
+export default function Detail({navigation}) {
+  useEffect(()=> {
+    navigation.setOptions({
+      headerTitle: 'Nike Downshifter'
+    });
+  });
+  
+return (
+  <ScrollView style={styles.container}>
+      <Image 
+      source={require('../../assets/detail.png')}
+      style={styles.image}
+      resizeMode='cover'
+      />
+      <View>
+        <View>
+          <Text style={[styles.title, { fontSize: 24}]}>R$ 280,00 </Text>
+        </View>
+        <View opacity={0.4}>
+          <Text  style={[styles.title, { fontSize: 30}]}>Nike Downshifter </Text>
+        </View>
+        <View style={styles.dotContainer}>
+          <Dot color="#2379f4" />
+          <Dot color="#fb6e53" />
+          <Dot color="#ddd" />
+          <Dot color="#000" />
+         </View>
+        <View style={{flexDirection:'row', width:'100%'}}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <SizeButton bgColor='#17181a' color='#FFF'>40</SizeButton>
+            <SizeButton>38</SizeButton>
+            <SizeButton>37</SizeButton>
+            <SizeButton>35</SizeButton>
+          </ScrollView>
+        </View>
+        <View style={styles.textContent}>
+          <Text style={styles.textTitle}>Nike Downshifter</Text>
+          <Text style={styles.textContent}>
+            O Tênis Nike Masculino Downshifter 10 traz amortecimento e suporte atualizados, para garantir uma corrida estável e confortável. Esse tênis de corrida é confeccionado em material respirável, cabedal em couro sintético
+          </Text>
+          <Text style={styles.textList}> 
+            - Categoria: Amortecimento 
+          </Text>
+          <Text style={styles.textList}>
+            - Material: Mesh
+          </Text>
+        </View>
+        <Button/>
+        <View style={styles.line}></View>
+      </View>
+      <Footer></Footer>
+
+  </ScrollView>
+);
 }
-export default Detail;
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    width:'100%',
+    backgroundColor:'#FFF'
+  },
+  imagem: {
+    width:'100%'
+  },
+  title:{
+    fontFamily:'Anton_400Regular',
+    paddingHorizontal:'2%'
+  },
+  dotContainer:{
+    flexDirection:'row',
+    marginVertical:'7%'
+  },
+  textContent: {
+    fontSize: 16,
+    lineHeight: 25,
+    marginVertical:'2%',
+    paddingHorizontal:'2%'
+  },
+  textTitle: {
+    fontSize:22,
+    marginVertical:'2%'
+
+  },
+  textList: {
+    fontSize: 16,
+    lineHeight: 25
+  },
+  line:{
+    borderWidth:1,
+    borderBottomColor:'#DDD',
+    marginVertical:'2%'
+  }
+})
