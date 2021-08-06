@@ -1,12 +1,18 @@
-import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import React,{useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {useNavigation} from '@react-navigation/native'; /* hook pra navegar entre as telas */
+import Cart from '../../pages/Cart';
 
-export default function Button() {
+export default function AddCart() {
+    
  return (
    <View style={styles.container}>
-       <TouchableOpacity style={styles.btnContainer}>
-           <Text style={styles.title}>Comprar</Text>
+       <TouchableOpacity style={styles.btnContainer} >
+           <Text style={styles.title}>Adicionar ao carrinho</Text>
        </TouchableOpacity>
+       
+       
    </View>
   );
 }

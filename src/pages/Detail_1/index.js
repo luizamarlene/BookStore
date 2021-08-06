@@ -8,12 +8,10 @@ import {Feather} from '@expo/vector-icons';
 import Shoes from '../../components/Shoes'
 
 
-
 export default function Detail({navigation}) {
-
   useEffect(()=> {
     navigation.setOptions({
-      headerTitle: 'Nike Downshifter',
+      headerTitle: 'Nike Air Max Dia',
       headerRight:() => (
         <TouchableOpacity style={{marginRight:15}}>
             <Feather
@@ -37,10 +35,10 @@ return (
       />
       <View>
         <View>
-          <Text style={[styles.title, { fontSize: 24}]}>R$ 280,00 </Text>
+          <Text style={[styles.title, { fontSize: 24}]}>R$ 140,99 </Text>
         </View>
         <View opacity={0.4}>
-          <Text  style={[styles.title, { fontSize: 30}]}>Nike Downshifter </Text>
+          <Text  style={[styles.title, { fontSize: 30}]}>Nike Air Max Dia </Text>
         </View>
         <View style={styles.dotContainer}>
           <Dot color="#2379f4" />
@@ -57,9 +55,9 @@ return (
           </ScrollView>
         </View>
         <View style={styles.textContent}>
-          <Text style={styles.textTitle}>Nike Downshifter</Text>
+          <Text style={styles.textTitle}>Nike Air Max Dia</Text>
           <Text style={styles.textContent}>
-            O Tênis Nike Masculino Downshifter 10 traz amortecimento e suporte atualizados, para garantir uma corrida estável e confortável. Esse tênis de corrida é confeccionado em material respirável, cabedal em couro sintético
+            O Tênis Nike Air Max Dia traz amortecimento e suporte atualizados, para garantir uma corrida estável e confortável. Esse tênis de corrida é confeccionado em material respirável, cabedal em couro sintético
           </Text>
           <Text style={styles.textList}> 
             - Categoria: Amortecimento 
@@ -68,7 +66,7 @@ return (
             - Material: Mesh
           </Text>
         </View>
-        <AddCart onClick={()=>navigation.navigate('Cart')}/>
+        <AddCart/>
         <View style={styles.line}></View>
       </View>
       <Footer></Footer>

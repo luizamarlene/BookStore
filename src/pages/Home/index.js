@@ -1,13 +1,27 @@
-import React from 'react'; /* rnfunc */
+import React, {useEffect} from 'react'; /* rnfunc */
 import { View, Text, StyleSheet,ScrollView, Image, TouchableOpacity} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Shoes from '../../components/Shoes';
 import {useNavigation} from '@react-navigation/native'; /* hook pra navegar entre as telas */
-
-
+import {Feather} from '@expo/vector-icons'; 
 
 function Home() {
   const navigation = useNavigation();
+  useEffect(()=> {
+    navigation.setOptions({
+      headerTitle: 'Magazine Luiza',
+      headerRight:() => (
+        <TouchableOpacity style={{marginRight:15}}>
+            <Feather
+                name='shopping-cart'
+                size={24}
+                color='black'
+                onPress={()=>navigation.navigate('Cart')}>
+            </Feather>
+        </TouchableOpacity>
+    )
+    });
+  });
  return (
    <View style={styles.container}>
     <View style={styles.header}>
@@ -32,17 +46,18 @@ function Home() {
     <ScrollView>
       <Text style={styles.text}>LANÇAMENTOS</Text>
       <View style={styles.produtoContainer}>
-        <Shoes img={require('../../assets/1.png')} cost="R$ 140,99">Nike lindo</Shoes>
+        <Shoes img={require('../../assets/1.png')} cost="R$ 140,99" onClick={()=> navigation.navigate('Detail_1')}>Nike Air Max Dia</Shoes>
+
         <Shoes img={require('../../assets/2.png')} cost="R$ 340,99" onClick={()=> navigation.navigate('Detail')
         }>Nike Downshifter</Shoes>
       </View>
       <View style={styles.produtoContainer}>
-        <Shoes img={require('../../assets/3.png')} cost="R$ 140,99">Nike air</Shoes>
-        <Shoes img={require('../../assets/4.png')} cost="R$ 340,99">Nike foda-se</Shoes>
+        <Shoes img={require('../../assets/3.png')} cost="R$ 140,99" onClick={()=> navigation.navigate('Detail')} >Nike Squidward </Shoes>
+        <Shoes img={require('../../assets/4.png')} cost="R$ 340,99">Nike Epic </Shoes>
       </View>
       <View style={styles.produtoContainer}>
-        <Shoes img={require('../../assets/5.png')} cost="R$ 140,99">Nike lindo, caro e perfeito</Shoes>
-        <Shoes img={require('../../assets/6.png')} cost="R$ 340,99">Nike azul</Shoes>
+        <Shoes img={require('../../assets/5.png')} cost="R$ 140,99" >Nike Joyride </Shoes>
+        <Shoes img={require('../../assets/6.png')} cost="R$ 340,99" >Nike go</Shoes>
       </View>
      
     </ScrollView>

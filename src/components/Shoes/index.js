@@ -1,13 +1,15 @@
 import React from 'react';
 import { View,Text,TouchableOpacity, Image,StyleSheet} from 'react-native';
 
-export default function Shoes(props) {
 
+export default function Shoes(props) {
+  
+  
   function filterDesc(desc) {
     if(desc.length < 27) { /* 27 caracteres */
       return desc;
     }
-    return `${desc.substring(0,22)}...`; /* vai pegar a string de 0 a 25 e dps ... */
+    return `${desc.substring(0,21)}...`; /* vai pegar a string de 0 a 25 e dps ... */
   }
  
  return (
@@ -23,6 +25,7 @@ export default function Shoes(props) {
         <Text style={styles.shoesText}>{props.cost}</Text>
       </View>
     </TouchableOpacity>
+    
   
  );
 }
